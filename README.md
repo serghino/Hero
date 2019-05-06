@@ -18,4 +18,4 @@ Form
 ![alt Firebase](src/assets/img/heroe.png)
 
 List 
-![alt Firebase](src/assets/img/heroes.png)
+![alt Firebase](src/assets/img/Heroes.png)

@@ -1,0 +1,51 @@
+<h1>Heroes</h1>
+<hr>
+
+<div class="row animated fadeIn fast">
+  <div class="col-md-12 text-right">
+    <button [routerLink]="[ '/heroe', 'new' ]"
+        class="btn btn-outline-primary"
+        type="button" 
+        name="button">Add Hero</button>
+  </div>
+</div>
+<br>
+<div class="row animated fadeIn fast">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Team</th>
+            <th scope="col">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let k of heroes | keys; let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{heroes[k].name}}</td>
+            <td>{{heroes[k].team}}</td>
+            <td>
+              <button [routerLink]="[ '/heroe', k]" type="button" class="btn btn-sm btn-outline-success">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button (click)="deleteHeroe(k)" type="button" class="btn btn-sm btn-outline-danger">
+                <i class="fas fa-minus-circle"></i>
+              </button>
+            </td>
+          </tr>
+         </tbody>
+      </table> 
+      <div *ngIf="(heroes | keys).length === 0 && loading" 
+          class="alert alert-info" role="alert">
+          <strong>Empty</strong> records.
+      </div>
+      <div *ngIf="!loading" 
+          class="alert alert-warning" role="alert">
+          <strong>Loading</strong>...
+      </div>   
+    </div>
+  </div>
+</div>
